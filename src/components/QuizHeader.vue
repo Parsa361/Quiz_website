@@ -1,0 +1,34 @@
+<script setup>
+const { questionStatus } = defineProps(['questionStatus'])
+</script>
+
+<template>
+    <header>
+        <h4>Quiestion {{questionStatus}}</h4>
+        <div class="bar">
+            <div class="completion"></div>
+        </div>
+    </header>
+</template>
+
+<style scoped>
+header {
+    margin-top: 20px;
+}
+
+header h4 {
+    font-size: 30px;
+}
+
+.bar {
+    width: 300px;
+    height: 50px;
+    border: 2px solid bisque;
+}
+
+.completion {
+    height: 100%;
+    width: 0%;
+    background-color: bisque;
+}
+</style>
