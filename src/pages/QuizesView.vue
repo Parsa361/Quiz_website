@@ -19,7 +19,9 @@ watch(search, () => {
         <input v-model.trim="search" type="text" placeholder="search...">
     </header>
     <div class="options-container">
-        <Card v-for="quiz in quizes" :key="quiz.id" :quiz="quiz" />
+        <TransitionGroup name="cards" appear>
+            <Card v-for="quiz in quizes" :key="quiz.id" :quiz="quiz" />
+        </TransitionGroup>
     </div>
 </template>
 
@@ -48,4 +50,17 @@ header input {
     display: flex;
     flex-wrap: wrap;
     margin-top: 40px;
-}</style>
+}
+
+.cards-enter-from {
+    transform: translateY(-50px);
+    opacity: 0;
+}
+.cards-enter-to {
+    transform: translateY(0);
+    opacity: 1;
+}
+.cards-enter-active {
+    transition: all 0.6s ease;
+}
+</style>
